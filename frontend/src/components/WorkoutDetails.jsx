@@ -2,6 +2,9 @@ import {useWorkoutContext} from "../hooks/useWorkoutContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
+// date-fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 const WorkoutDetails = ({ workout }) => {
 
   const { dispatch } = useWorkoutContext()
@@ -27,7 +30,7 @@ dispatch({type: 'DELETE_WORKOUT', payload: workout})
         <strong>reps: </strong>
         {workout.reps}
       </p>
-      <p>{workout.createdAt}</p>
+      <p>{formatDistanceToNow(workout.createdAt, {addSuffix: true})}</p>
       <span onClick={handleClick}><DeleteIcon /></span>
     </div>
   );

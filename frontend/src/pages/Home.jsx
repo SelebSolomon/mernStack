@@ -41,7 +41,7 @@ useEffect(() => {
   };
 
   fetchedData();
-}, []);
+}, [dispatch]);
 
   return (
     <div className="home">
